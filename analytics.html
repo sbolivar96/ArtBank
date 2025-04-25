@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,35 +21,58 @@
       <p>Monthly Traffic: 18,456 visits</p>
       <p>Average Time on Site: 3m 45s</p>
     </section>
-    <canvas id="trafficChart" width="400" height="200"></canvas>
-  
-    <canvas id="signupChart" width="400" height="200" style="margin-top: 2rem;"></canvas>
-    </main>
-    <script>
-      const signupCtx = document.getElementById('signupChart').getContext('2d');
-      new Chart(signupCtx, {
-        type: 'bar',
-        data: {
-          labels: ['New York', 'Chicago', 'Miami', 'San Francisco', 'Austin'],
-          datasets: [{
-            label: 'Event Signups by Location',
-            data: [320, 270, 190, 150, 210],
-            backgroundColor: ['#0077cc', '#3399ff', '#66ccff', '#99ddff', '#cceeff']
-          }]
-        }
-      });
-    </script>
-    
+
+    <section style="margin-top: 2rem;">
+      <h2>User Filters</h2>
+      <label for="ageGroup">Age Group:</label>
+      <select id="ageGroup">
+        <option>All</option>
+        <option>18-24</option>
+        <option>25-34</option>
+        <option>35-44</option>
+        <option>45-54</option>
+        <option>55+</option>
+      </select>
+      <label for="locationFilter" style="margin-left: 1rem;">Location:</label>
+      <select id="locationFilter">
+        <option>All</option>
+        <option>New York</option>
+        <option>Chicago</option>
+        <option>Miami</option>
+        <option>San Francisco</option>
+        <option>Austin</option>
+      </select>
+    </section>
+
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 2rem;">
+      <canvas id="signupChart" width="400" height="200"></canvas>
+      <canvas id="performanceChart" width="400" height="200"></canvas>
+    </div>
+  </main>
+
   <script>
-    const ctx = document.getElementById('trafficChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
+    const signupCtx = document.getElementById('signupChart').getContext('2d');
+    new Chart(signupCtx, {
+      type: 'bar',
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        labels: ['New York', 'Chicago', 'Miami', 'San Francisco', 'Austin'],
         datasets: [{
-          label: 'Visits',
-          data: [3000, 4500, 4800, 6000, 8156],
-          borderWidth: 2
+          label: 'Event Signups by Location',
+          data: [320, 270, 190, 150, 210],
+          backgroundColor: ['#0077cc', '#3399ff', '#66ccff', '#99ddff', '#cceeff']
+        }]
+      }
+    });
+
+    const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+    new Chart(performanceCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Concert', 'Play', 'Dance', 'Art Show', 'Workshop', 'Pet Care'],
+        datasets: [{
+          label: 'Engagement by Type',
+          data: [400, 250, 300, 180, 220, 50],
+          backgroundColor: ['#ff9999', '#ffcc99', '#ffff99', '#ccff99', '#99ffcc', '#99ccff']
         }]
       }
     });
