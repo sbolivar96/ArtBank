@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Art Bank Analytics</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>User Analytics</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Engagement Metrics</h2>
+      <p>Total Users: 1,203</p>
+      <p>Monthly Traffic: 18,456 visits</p>
+      <p>Average Time on Site: 3m 45s</p>
+    </section>
+    <canvas id="trafficChart" width="400" height="200"></canvas>
+  
+    <canvas id="signupChart" width="400" height="200" style="margin-top: 2rem;"></canvas>
+    </main>
+    <script>
+      const signupCtx = document.getElementById('signupChart').getContext('2d');
+      new Chart(signupCtx, {
+        type: 'bar',
+        data: {
+          labels: ['New York', 'Chicago', 'Miami', 'San Francisco', 'Austin'],
+          datasets: [{
+            label: 'Event Signups by Location',
+            data: [320, 270, 190, 150, 210],
+            backgroundColor: ['#0077cc', '#3399ff', '#66ccff', '#99ddff', '#cceeff']
+          }]
+        }
+      });
+    </script>
+    
+  <script>
+    const ctx = document.getElementById('trafficChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [{
+          label: 'Visits',
+          data: [3000, 4500, 4800, 6000, 8156],
+          borderWidth: 2
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
