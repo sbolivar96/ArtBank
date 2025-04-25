@@ -14,11 +14,6 @@
       margin-top: 2rem;
     }
 
-    canvas {
-      width: 400px !important;
-      height: 250px !important;
-    }
-
     select {
       margin: 0.5rem;
       padding: 0.4rem;
@@ -70,8 +65,8 @@
     </section>
 
     <div class="chart-container">
-      <canvas id="signupChart"></canvas>
-      <canvas id="performanceChart"></canvas>
+      <canvas id="signupChart" width="450" height="300"></canvas>
+      <canvas id="performanceChart" width="450" height="300"></canvas>
     </div>
   </main>
 
@@ -88,8 +83,7 @@
         }]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false
+        responsive: false
       }
     });
 
@@ -105,8 +99,7 @@
         }]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false
+        responsive: false
       }
     });
   </script>
